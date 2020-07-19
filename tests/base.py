@@ -12,14 +12,19 @@ from unittest import TestCase
 # issue where the tests were run before the NodeCalculator was loaded.
 import os
 tests_path = os.path.dirname(os.path.realpath(__file__))
-noca_path = tests_path.rsplit(os.sep, 1)[0]
+tool_path = tests_path.rsplit(os.sep, 1)[0]
 
 import sys
-if noca_path not in sys.path:
-    sys.path.insert(0, noca_path)
+if tool_path not in sys.path:
+    sys.path.insert(0, tool_path)
 
 # Third party imports
+# Needed(?!?!?) to make sure Maya loads properly!
+import maya.standalone
+maya.standalone.initialize()
+
 import maya.cmds as cmds
+
 
 
 class BaseTestCase(TestCase):
@@ -27,6 +32,9 @@ class BaseTestCase(TestCase):
     @classmethod
     def setUpClass(self):
         """Run for every Test-Class, before methods are executed."""
+        print "ALL GOOD?!"
+        print cmds
+        print cmds.file
         cmds.file(new=True, force=True)
 
     def tearDown(self):
