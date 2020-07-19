@@ -1,4 +1,4 @@
-name: ExampleTool CI
+name: Example CI
 
 # Run tests on any push or pullRequest event
 on: [push, pull_request]
@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Load Docker Image
+    - name: Run Unittests
       uses: docker://mottosso/maya:2020 # For all available Maya versions, see https://github.com/mottosso/docker-maya
       with:
         args: /usr/autodesk/maya/bin/mayapy -m unittest discover -s ./tests -v
