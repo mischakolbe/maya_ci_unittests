@@ -1,40 +1,27 @@
-"""
-Unit test base class.
-"""
+"""Unittest base class."""
+import os
+import sys
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# IMPORTS
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Python imports
 from unittest import TestCase
 
-# Adding the NodeCalculator path through this base module takes care of an odd
-# issue where the tests were run before the NodeCalculator was loaded.
-import os
+# Add script base path to system paths.
 tests_path = os.path.dirname(os.path.realpath(__file__))
-tool_path = tests_path.rsplit(os.sep, 1)[0]
+base_path = tests_path.rsplit(os.sep, 1)[0]
+if base_path not in sys.path:
+    sys.path.insert(0, base_path)
 
-import sys
-if tool_path not in sys.path:
-    sys.path.insert(0, tool_path)
-
-# Third party imports
-# Needed(?!?!?) to make sure Maya loads properly!
+# Wait for Maya - otherwise tests might be run before Maya is actually loaded!
 import maya.standalone
 maya.standalone.initialize()
 
-import maya.cmds as cmds
+from maya import cmds
 
 
-
-class BaseTestCase(TestCase):
-    """Base Class for all unittests."""
+class MayaBaseTestCase(TestCase):
+    """Base class for all Maya unittests."""
     @classmethod
     def setUpClass(self):
-        """Run for every Test-Class, before methods are executed."""
-        print "ALL GOOD?!"
-        print cmds
-        print cmds.file
+        """Run for every Test-Class, before any method is executed."""
         cmds.file(new=True, force=True)
 
     def tearDown(self):

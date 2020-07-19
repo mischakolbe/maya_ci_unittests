@@ -1,12 +1,17 @@
-"""Simple test function.
-
-:author: Mischa Kolbe <mischakolbe@gmail.com>
-"""
+"""Example module."""
 from maya import cmds
 
 
-def make_a_cube(name="test"):
-    cube = cmds.polyCube(name=name, constructionHistory=False)[0]
+def make_transform(name="test"):
+    """Create a named transform.. Exciting!
 
-    return cube
+    Args:
+        name (str): Name for the transform to be created.
+
+    Returns:
+        str: Name of the created transform
+    """
+    transform = cmds.createNode("transform", name=name)
+
+    return transform
 
