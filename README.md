@@ -3,6 +3,7 @@ Example repository for CI tested Maya scripts.
 
 Fork it and start testing without any headaches.
 
+Check other repository for some example tests and convenience executable for Windows.
 
 Use workflows>maya_unittests.yml, tests-folder and base.py as-is. Change example_code.py and create tests accordingly.
 
