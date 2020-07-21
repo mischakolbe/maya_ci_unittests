@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
     - name: Run Unittests
       uses: docker://mottosso/maya:2020 # For all available Maya versions, see https://github.com/mottosso/docker-maya
       with:
