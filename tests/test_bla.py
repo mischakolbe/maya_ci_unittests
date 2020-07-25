@@ -13,4 +13,4 @@ class TestMakeTransform(MayaBaseTestCase):
     def test_node_name(self):
         """Test whether returned name is correct."""
         name = "TestTransform"
-        self.assertEqual(example_code.make_transform(name=name), "bob")
+        self.assertEqual(example_code.make_transform(name=name), "boba")
