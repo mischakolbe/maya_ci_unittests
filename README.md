@@ -1,13 +1,16 @@
-# maya_ci_unittests
-Example repository for CI tested Maya scripts.
+# Continuous Integration for Autodesk Maya
 
-Fork it and start testing without any headaches.
+This repository contains the bare minimum components to automatically run unittests for your Maya script repos.
 
-Check other repository for some example tests and convenience executable for Windows.
+Fork or copy/paste to start testing without any headaches.
 
-Use workflows>maya_unittests.yml, tests-folder and base.py as-is. Change example_code.py and create tests accordingly.
 
-run_tests.bat is a little convenience executable to run tests locally on Windows machines.
 
-test_transform.py has some common test assertions.
+# Links
 
+
+* Read this [blog post](XXX "Continuous Integration for Maya Scripts") with a lot of information about this repository.
+
+* Check this [related repository](https://github.com/mischakolbe/maya_ci_unittests_with_examples "Maya CI unittests with examples") for example tests.
+
+* Show Marcus Ottosson some love for his wonderful [Maya Docker images](https://github.com/mottosso/docker-maya).
